@@ -7,7 +7,7 @@ cp .env.example .env
 # set MONGODB_URI in .env if needed
 npm install
 npm run dev
-# Server -> http://localhost:5000
+# Server -> http://localhost:3002
 ```
 
 ## API Examples
@@ -15,13 +15,13 @@ npm run dev
 ### Health
 
 ```bash
-curl http://localhost:5000/api/health
+curl http://localhost:3002/api/health
 ```
 
 ### Create Trip
 
 ```bash
-curl -X POST http://localhost:5000/api/trips \
+curl -X POST http://localhost:3002/api/trips \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Goa Getaway",
@@ -35,20 +35,20 @@ curl -X POST http://localhost:5000/api/trips \
 
 ```bash
 # page=1, limit=10
-curl "http://localhost:5000/api/trips?page=1&limit=10"
+curl "http://localhost:3002/api/trips?page=1&limit=10"
 
 # filter by destination containing 'goa' (case-insensitive)
-curl "http://localhost:5000/api/trips?destination=goa"
+curl "http://localhost:3002/api/trips?destination=goa"
 
 # filter by budget range
-curl "http://localhost:5000/api/trips?minBudget=10000&maxBudget=30000"
+curl "http://localhost:3002/api/trips?minBudget=10000&maxBudget=30000"
 ```
 
 ### Update Trip
 
 ```bash
 # Replace <id> with the _id from a created trip
-curl -X PUT http://localhost:5000/api/trips/<id> \
+curl -X PUT http://localhost:3002/api/trips/<id> \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Updated Goa Trip",

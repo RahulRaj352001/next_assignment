@@ -13,7 +13,7 @@ export const updateTripSchema = tripBaseSchema;
 export const listQuerySchema = z.object({
   page: z.coerce.number().int().positive().default(1),
   limit: z.coerce.number().int().positive().max(100).default(10),
-  destination: z.string().trim().min(1).optional(),
+  destination: z.string().trim().optional().transform(val => val === "" ? undefined : val),
   minBudget: z.coerce.number().nonnegative().optional(),
   maxBudget: z.coerce.number().nonnegative().optional()
 });
